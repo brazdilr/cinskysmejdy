@@ -214,10 +214,6 @@ button:focus-visible {
   filter: brightness(1.08);
 }
 
-.card .accent {
-  color: var(--red);
-}
-
 .card-video {
   display: grid;
   grid-template-columns: 88px 1fr;

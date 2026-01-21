@@ -66,7 +66,8 @@ const TOPIC_KEYWORDS = [
   "stahování z trhu",
 ];
 
-const MAX_ITEMS_PER_BUCKET = 80; // CZ / INTL
+const MAX_ITEMS_PER_BUCKET = 80; // CZ / INTL z jednoho běhu
+const MAX_HISTORY_ITEMS = 500; // maximální historie v JSON
 const REQUEST_TIMEOUT_MS = 15_000;
 
 function loadSources() {
@@ -294,6 +295,67 @@ function normalizeAndFilter(items) {
   return deduped.slice(0, MAX_ITEMS_PER_BUCKET);
 }
 
+function dedupeAndSort(items, limit) {
+  const seenUrl = new Set();
+  const seenTitleSource = new Set();
+  const seenTitleDate = new Set();
+  const deduped = [];
+  for (const x of items) {
+    if (!x || !x.url) continue;
+    const urlKey = x.url.trim();
+    const titleKey = String(x.title || "")
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .trim();
+    const sourceKey = String(x.source || "")
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .trim();
+    const titleSourceKey = `${titleKey}||${sourceKey}`;
+    const dateKey = (x.publishedAt || "").slice(0, 10);
+    const titleDateKey = `${titleKey}||${dateKey}`;
+    if (
+      seenUrl.has(urlKey) ||
+      seenTitleSource.has(titleSourceKey) ||
+      (titleKey && dateKey && seenTitleDate.has(titleDateKey))
+    ) {
+      continue;
+    }
+    seenUrl.add(urlKey);
+    if (titleKey || sourceKey) {
+      seenTitleSource.add(titleSourceKey);
+    }
+    if (titleKey && dateKey) {
+      seenTitleDate.add(titleDateKey);
+    }
+    deduped.push({
+      title: x.title || "Bez názvu",
+      source: x.source || "Neznámý zdroj",
+      url: x.url,
+      publishedAt: x.publishedAt || new Date().toISOString(),
+    });
+  }
+
+  deduped.sort((a, b) => {
+    const ta = Date.parse(a.publishedAt || "");
+    const tb = Date.parse(b.publishedAt || "");
+    return (Number.isNaN(tb) ? 0 : tb) - (Number.isNaN(ta) ? 0 : ta);
+  });
+
+  return typeof limit === "number" ? deduped.slice(0, limit) : deduped;
+}
+
+function loadExisting(pathToFile) {
+  if (!fs.existsSync(pathToFile)) return [];
+  try {
+    const raw = fs.readFileSync(pathToFile, "utf8");
+    const data = JSON.parse(raw);
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+
 async function aggregateBucket(feedUrls, bucketName) {
   const all = [];
   for (const item of feedUrls) {
@@ -356,9 +418,19 @@ async function main() {
     aggregateBucket(intl, "INTL"),
   ]);
 
-  writeJson(CZ_OUT, czOut);
-  writeJson(INTL_OUT, intlOut);
-  console.log(`Hotovo. CZ: ${czOut.length}, INTL: ${intlOut.length}`);
+  const existingCz = loadExisting(CZ_OUT);
+  const existingIntl = loadExisting(INTL_OUT);
+  const mergedCz = dedupeAndSort([...czOut, ...existingCz], MAX_HISTORY_ITEMS);
+  const mergedIntl = dedupeAndSort(
+    [...intlOut, ...existingIntl],
+    MAX_HISTORY_ITEMS
+  );
+
+  writeJson(CZ_OUT, mergedCz);
+  writeJson(INTL_OUT, mergedIntl);
+  console.log(
+    `Hotovo. CZ: ${mergedCz.length}, INTL: ${mergedIntl.length} (nové: ${czOut.length}/${intlOut.length})`
+  );
 }
 
 if (require.main === module) {
@@ -367,4 +439,3 @@ if (require.main === module) {
     process.exitCode = 1;
   });
 }
-

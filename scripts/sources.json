@@ -11,6 +11,30 @@
     {
       "topic": "padelky",
       "rss": "https://news.google.com/rss/search?q=n%C3%A1kupy+z+%C4%8D%C3%ADny+pad%C4%9Blky&hl=cs&gl=CZ&ceid=CZ:cs"
+    },
+    {
+      "topic": "shein-rizika",
+      "rss": "https://news.google.com/rss/search?q=shein+rizika&hl=cs&gl=CZ&ceid=CZ:cs"
+    },
+    {
+      "topic": "temu-rizika",
+      "rss": "https://news.google.com/rss/search?q=temu+rizika&hl=cs&gl=CZ&ceid=CZ:cs"
+    },
+    {
+      "topic": "aliexpress-rizika",
+      "rss": "https://news.google.com/rss/search?q=aliexpress+rizika&hl=cs&gl=CZ&ceid=CZ:cs"
+    },
+    {
+      "topic": "pravda-o-temu",
+      "rss": "https://news.google.com/rss/search?q=pravda+o+temu&hl=cs&gl=CZ&ceid=CZ:cs"
+    },
+    {
+      "topic": "shein-zdravotni-problemy",
+      "rss": "https://news.google.com/rss/search?q=shein+zdravotn%C3%AD+probl%C3%A9my&hl=cs&gl=CZ&ceid=CZ:cs"
+    },
+    {
+      "topic": "shein-toxicke",
+      "rss": "https://news.google.com/rss/search?q=shein+toxick%C3%A9&hl=cs&gl=CZ&ceid=CZ:cs"
     }
   ],
   "intl": [
@@ -25,6 +49,18 @@
     {
       "topic": "counterfeit",
       "rss": "https://news.google.com/rss/search?q=counterfeit+products+chinese+marketplaces&hl=en&gl=US&ceid=US:en"
+    },
+    {
+      "topic": "temu-toxic-products",
+      "rss": "https://news.google.com/rss/search?q=temu+toxic+products&hl=en&gl=US&ceid=US:en"
+    },
+    {
+      "topic": "shein-toxic-products",
+      "rss": "https://news.google.com/rss/search?q=shein+toxic+products&hl=en&gl=US&ceid=US:en"
+    },
+    {
+      "topic": "dangers-of-chinese-marketplaces",
+      "rss": "https://news.google.com/rss/search?q=dangers+of+chinese+marketplaces&hl=en&gl=US&ceid=US:en"
     }
   ]
 }

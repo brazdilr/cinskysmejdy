@@ -38,21 +38,13 @@
 
     const meta = document.createElement("div");
     meta.className = "card-meta";
-    const sourceSpan = document.createElement("span");
-    if (isCz) sourceSpan.className = "accent";
-    sourceSpan.textContent = item.source || "Neznámý zdroj";
     const dateStr = formatDate(item.publishedAt);
-    meta.textContent = sourceSpan.textContent + (dateStr ? " — " + dateStr : "");
-    if (isCz) {
-      meta.innerHTML = "";
-      meta.appendChild(sourceSpan);
-      if (dateStr) {
-        meta.appendChild(document.createTextNode(" — " + dateStr));
-      }
-    }
+    meta.textContent = dateStr ? dateStr : "";
 
     card.appendChild(title);
-    card.appendChild(meta);
+    if (dateStr) {
+      card.appendChild(meta);
+    }
 
     if (item.url) {
       card.addEventListener("click", () => {
