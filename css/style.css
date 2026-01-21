@@ -219,12 +219,16 @@ button:focus-visible {
   grid-template-columns: 88px 1fr;
   gap: 0.8rem;
   align-items: center;
+  text-decoration: none;
+  color: inherit;
 }
 
 .thumb {
   width: 88px;
   height: 56px;
   background: #1a1a1a;
+  background-size: cover;
+  background-position: center;
   border: 1px solid var(--stroke);
   position: relative;
   overflow: hidden;
