@@ -1,0 +1,30 @@
+{
+  "cz": [
+    {
+      "topic": "rizika",
+      "rss": "https://news.google.com/rss/search?q=%C4%8D%C3%ADnsk%C3%A9+obchody+rizika&hl=cs&gl=CZ&ceid=CZ:cs"
+    },
+    {
+      "topic": "prava",
+      "rss": "https://news.google.com/rss/search?q=n%C3%A1kupy+z+%C4%8D%C3%ADny+pr%C3%A1va+spot%C5%99ebitele&hl=cs&gl=CZ&ceid=CZ:cs"
+    },
+    {
+      "topic": "padelky",
+      "rss": "https://news.google.com/rss/search?q=n%C3%A1kupy+z+%C4%8D%C3%ADny+pad%C4%9Blky&hl=cs&gl=CZ&ceid=CZ:cs"
+    }
+  ],
+  "intl": [
+    {
+      "topic": "risks",
+      "rss": "https://news.google.com/rss/search?q=chinese+online+marketplaces+warning&hl=en&gl=US&ceid=US:en"
+    },
+    {
+      "topic": "rights",
+      "rss": "https://news.google.com/rss/search?q=shopping+from+china+consumer+rights&hl=en&gl=US&ceid=US:en"
+    },
+    {
+      "topic": "counterfeit",
+      "rss": "https://news.google.com/rss/search?q=counterfeit+products+chinese+marketplaces&hl=en&gl=US&ceid=US:en"
+    }
+  ]
+}
