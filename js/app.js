@@ -14,7 +14,6 @@
     month: "2-digit",
     day: "2-digit",
   });
-  const mobileQuery = window.matchMedia("(max-width: 720px)");
   const PAGE_SIZE = 7;
 
   function setState(isPlaying) {
@@ -41,6 +40,12 @@
   function setupPaginatedList(listEl, buttonEl, items, renderItem) {
     if (!listEl || !buttonEl) return;
 
+    if (items.length <= PAGE_SIZE) {
+      renderList(listEl, items, renderItem);
+      buttonEl.hidden = true;
+      return;
+    }
+
     let page = 0;
 
     function renderPage() {
@@ -49,33 +54,24 @@
       buttonEl.hidden = end >= items.length;
     }
 
-    function renderAll() {
-      renderList(listEl, items, renderItem);
-      buttonEl.hidden = true;
-    }
-
-    function applyMode() {
-      page = 0;
-      if (mobileQuery.matches) {
-        renderPage();
-      } else {
-        renderAll();
-      }
-    }
-
     buttonEl.addEventListener("click", () => {
       page += 1;
       renderPage();
     });
 
-    applyMode();
-    mobileQuery.addEventListener("change", applyMode);
+    renderPage();
   }
 
   function setupPaginatedNodes(listEl, buttonEl) {
     if (!listEl || !buttonEl) return;
 
     const nodes = Array.from(listEl.children);
+    if (nodes.length <= PAGE_SIZE) {
+      listEl.innerHTML = "";
+      nodes.forEach((node) => listEl.appendChild(node));
+      buttonEl.hidden = true;
+      return;
+    }
     let page = 0;
 
     function renderPage() {
@@ -85,28 +81,12 @@
       buttonEl.hidden = end >= nodes.length;
     }
 
-    function renderAll() {
-      listEl.innerHTML = "";
-      nodes.forEach((node) => listEl.appendChild(node));
-      buttonEl.hidden = true;
-    }
-
-    function applyMode() {
-      page = 0;
-      if (mobileQuery.matches) {
-        renderPage();
-      } else {
-        renderAll();
-      }
-    }
-
     buttonEl.addEventListener("click", () => {
       page += 1;
       renderPage();
     });
 
-    applyMode();
-    mobileQuery.addEventListener("change", applyMode);
+    renderPage();
   }
 
   function createCard(item, isCz) {
@@ -185,6 +165,10 @@
           : "Zatím žádné články.";
       }
     } catch (err) {
+      const czMore = document.getElementById("cz-more");
+      const intlMore = document.getElementById("intl-more");
+      if (czMore) czMore.hidden = true;
+      if (intlMore) intlMore.hidden = true;
       if (czStatus) {
         czStatus.textContent = "Nepodařilo se načíst data.";
       }

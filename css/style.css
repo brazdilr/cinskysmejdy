@@ -35,6 +35,10 @@ button:focus-visible {
   outline-offset: 3px;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .hero {
   position: relative;
   min-height: 100svh;
@@ -191,7 +195,7 @@ button:focus-visible {
 }
 
 .load-more {
-  display: none;
+  display: inline-flex;
   align-self: flex-start;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--stroke);
@@ -317,7 +321,6 @@ button:focus-visible {
   }
 
   .load-more {
-    display: inline-flex;
     width: 100%;
     text-align: center;
     justify-content: center;
