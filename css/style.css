@@ -101,13 +101,6 @@ button:focus-visible {
   text-shadow: 0 3px 12px rgba(255, 200, 0, 0.65);
 }
 
-.hero-sub {
-  margin: 0 0 1.6rem;
-  color: var(--text);
-  font-size: 1.05rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-}
-
 .cta {
   display: inline-flex;
   align-items: center;
@@ -132,8 +125,59 @@ button:focus-visible {
   color: var(--muted);
 }
 
+.feeds-intro-wrap {
+  margin: 2.5rem auto 0;
+  padding: 0 1.25rem;
+  text-align: center;
+}
+
+.feeds-intro {
+  display: inline-block;
+  max-width: 800px;
+  width: fit-content;
+  padding: 2.2rem 42px 2.4rem;
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  isolation: isolate;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+.feeds-intro-text {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+.feeds-intro::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 160px;
+  height: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+  box-shadow: 0 0 12px rgba(240, 194, 0, 0.35);
+  z-index: 1;
+}
+
+.feeds-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/pozadi3.png") center / 100% 100% no-repeat;
+  filter: brightness(0.7);
+  z-index: 0;
+  pointer-events: none;
+}
+
 .feeds {
-  padding: 2.5rem 1.25rem 3.5rem;
+  padding: 1.5rem 1.25rem 3.5rem;
   background: var(--bg);
 }
 
