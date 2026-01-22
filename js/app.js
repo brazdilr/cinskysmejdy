@@ -14,6 +14,8 @@
     month: "2-digit",
     day: "2-digit",
   });
+  const mobileQuery = window.matchMedia("(max-width: 720px)");
+  const PAGE_SIZE = 7;
 
   function setState(isPlaying) {
     if (icon) icon.textContent = isPlaying ? "🔈" : "🔊";
@@ -27,6 +29,84 @@
     const d = new Date(isoString);
     if (Number.isNaN(d.getTime())) return "";
     return isoFormatter.format(d);
+  }
+
+  function renderList(listEl, items, renderItem) {
+    listEl.innerHTML = "";
+    (items || []).forEach((item) => {
+      listEl.appendChild(renderItem(item));
+    });
+  }
+
+  function setupPaginatedList(listEl, buttonEl, items, renderItem) {
+    if (!listEl || !buttonEl) return;
+
+    let page = 0;
+
+    function renderPage() {
+      const end = Math.min(items.length, (page + 1) * PAGE_SIZE);
+      renderList(listEl, items.slice(0, end), renderItem);
+      buttonEl.hidden = end >= items.length;
+    }
+
+    function renderAll() {
+      renderList(listEl, items, renderItem);
+      buttonEl.hidden = true;
+    }
+
+    function applyMode() {
+      page = 0;
+      if (mobileQuery.matches) {
+        renderPage();
+      } else {
+        renderAll();
+      }
+    }
+
+    buttonEl.addEventListener("click", () => {
+      page += 1;
+      renderPage();
+    });
+
+    applyMode();
+    mobileQuery.addEventListener("change", applyMode);
+  }
+
+  function setupPaginatedNodes(listEl, buttonEl) {
+    if (!listEl || !buttonEl) return;
+
+    const nodes = Array.from(listEl.children);
+    let page = 0;
+
+    function renderPage() {
+      const end = Math.min(nodes.length, (page + 1) * PAGE_SIZE);
+      listEl.innerHTML = "";
+      nodes.slice(0, end).forEach((node) => listEl.appendChild(node));
+      buttonEl.hidden = end >= nodes.length;
+    }
+
+    function renderAll() {
+      listEl.innerHTML = "";
+      nodes.forEach((node) => listEl.appendChild(node));
+      buttonEl.hidden = true;
+    }
+
+    function applyMode() {
+      page = 0;
+      if (mobileQuery.matches) {
+        renderPage();
+      } else {
+        renderAll();
+      }
+    }
+
+    buttonEl.addEventListener("click", () => {
+      page += 1;
+      renderPage();
+    });
+
+    applyMode();
+    mobileQuery.addEventListener("change", applyMode);
   }
 
   function createCard(item, isCz) {
@@ -85,15 +165,14 @@
         loadJson(INTL_PATH),
       ]);
 
-      czList.innerHTML = "";
-      intlList.innerHTML = "";
-
-      (czItems || []).forEach((item) => {
-        czList.appendChild(createCard(item, true));
-      });
-      (intlItems || []).forEach((item) => {
-        intlList.appendChild(createCard(item, false));
-      });
+      const czMore = document.getElementById("cz-more");
+      const intlMore = document.getElementById("intl-more");
+      setupPaginatedList(czList, czMore, czItems || [], (item) =>
+        createCard(item, true)
+      );
+      setupPaginatedList(intlList, intlMore, intlItems || [], (item) =>
+        createCard(item, false)
+      );
 
       if (czStatus) {
         czStatus.textContent = czItems?.length
@@ -133,5 +212,9 @@
 
   window.addEventListener("DOMContentLoaded", () => {
     initFeeds();
+    setupPaginatedNodes(
+      document.getElementById("video-list"),
+      document.getElementById("video-more")
+    );
   });
 })();
