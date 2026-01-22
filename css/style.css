@@ -59,7 +59,7 @@ button:focus-visible {
 }
 
 .hero-vignette {
-  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.65) 65%, rgba(0, 0, 0, 0.9) 100%);
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.75) 65%, rgba(0, 0, 0, 0.95) 100%);
   z-index: 1;
 }
 
@@ -77,11 +77,15 @@ button:focus-visible {
 }
 
 .hero-kicker {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  color: var(--muted);
+  color: var(--text);
   margin: 0 0 0.8rem;
+}
+
+.hero-kicker-secondary {
+  margin: 0 0 1rem;
 }
 
 .hero h1 {
@@ -316,6 +320,10 @@ button:focus-visible {
 }
 
 @media (max-width: 720px) {
+  .hero-kicker {
+    font-size: 0.9rem;
+  }
+
   .feeds-grid {
     grid-template-columns: 1fr;
   }
