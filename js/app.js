@@ -7,7 +7,6 @@
   if (!button || !audio) return;
 
   const label = button.querySelector(".label");
-  const icon = button.querySelector(".icon");
 
   const isoFormatter = new Intl.DateTimeFormat("cs-CZ", {
     year: "numeric",
@@ -17,10 +16,38 @@
   const PAGE_SIZE = 7;
 
   function setState(isPlaying) {
-    if (icon) icon.textContent = isPlaying ? "🔈" : "🔊";
     if (label) {
       label.textContent = isPlaying ? "stop" : "zní to povědomě?";
     }
+  }
+
+  function initParallax() {
+    const hero = document.querySelector(".hero");
+    if (!hero) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let ticking = false;
+
+    function update() {
+      ticking = false;
+      const rect = hero.getBoundingClientRect();
+      const total = hero.offsetHeight || 1;
+      const scrolled = Math.min(total, Math.max(0, -rect.top));
+      const bgOffset = Math.round(scrolled * 0.2);
+      const fgOffset = Math.round(scrolled * 0.45);
+      hero.style.setProperty("--hero-bg-offset", `${bgOffset}px`);
+      hero.style.setProperty("--hero-fg-offset", `${fgOffset}px`);
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
   }
 
   function formatDate(isoString) {
@@ -195,6 +222,7 @@
   audio.addEventListener("ended", () => setState(false));
 
   window.addEventListener("DOMContentLoaded", () => {
+    initParallax();
     initFeeds();
     setupPaginatedNodes(
       document.getElementById("video-list"),
