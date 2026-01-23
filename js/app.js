@@ -17,7 +17,9 @@
 
   function setState(isPlaying) {
     if (label) {
-      label.textContent = isPlaying ? "stop" : "zní to povědomě?";
+      label.textContent = isPlaying
+        ? "Zastavit přehrávání"
+        : "Přehrát spot";
     }
   }
 
