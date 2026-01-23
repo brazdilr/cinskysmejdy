@@ -21,6 +21,7 @@
         ? "Zastavit přehrávání"
         : "Přehrát spot";
     }
+    button.classList.toggle("is-playing", isPlaying);
   }
 
   function initParallax() {
