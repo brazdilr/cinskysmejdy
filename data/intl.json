@@ -1,11 +1,5 @@
 [
   {
-    "title": "Fast fashion: 69% of our clothes contain toxic chemicals - Euronews",
-    "source": "\"temu toxic products\" - Google News",
-    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPTlJuZlI3bjNNT3g0b0UxUUlXR1NnZ3duZU9nSzFxa29oUnJmM1ZyMy13NzhGdFhsb2M0WVhNQVZnVm5ES2hmOWx3UHhYTzRqTmZmMXpyc1dZWVNMMGs2ZHNkcXkwUk1tRnBIcm1jaVJJM2ZmbkEyZkdhS3lkOEdqbnN3NUc0cjk0eWxlM29mT0lBT0dIenBpSkdXb3JRZlNKc2c?oc=5",
-    "publishedAt": "2026-07-02T08:00:40.000Z"
-  },
-  {
     "title": "Shein faces German toxic chemicals probe - Ecotextile News",
     "source": "\"shein toxic products\" - Google News",
     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNelRSdWJpb2h1MXA2dzVxUFIxRHlIWHd0ajhGV0NjZjdwQllvbnZmY2NMYnItUk82R2tvLUhNSjNrWjh2Z2RiR3o2eHZDdHAyTjVfbEhGdDBLZnRmOW1TS01xSktUY2U1ZTdnTXF3YjBjdGtKRXgtRG5ud3NLaFQ3aV9kOUR2RmhhM2c1U192TWNCWERTel80RnZTYlZnT29xZUt2cg?oc=5",
@@ -180,7 +174,7 @@
     "publishedAt": "2026-05-28T07:00:00.000Z"
   },
   {
-    "title": "Brussels imposes a millionaire fine on Temu for selling toxic toys - en.ara.cat",
+    "title": "Brussels imposes a millionaire fine on Temu for selling toxic toys - Diari ARA",
     "source": "\"temu toxic products\" - Google News",
     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOTkwtRnd0Xzk1R2JDY2lyUnhncS1jWklJaDRqZkZUYkNUNk1td1FwMjVZNUQ2UXEzRmNxWEdOS3E3N2diMHh0TFhCbGRZT082TElnVjRUNkc2a1hrOEpYYnFSVjlKa1pvd2tGOEx4ZkU2M25lT3QyTy1zVDhMQmpsX3BsZjFCVWhqb2VMbzJkR3RfaW1YREdxb1l4U19VNzFidVRxWXBn0gGrAUFVX3lxTE5WMzV6OXFJY0IzbXg4cWk3bi1fM2Z6bVp2Y2g2SEFvSWNYbzV2QnNZX2Ric05DX1dnTlVHMl9mbkIzYk1OUWV4WXVHaGJ6WmFmYllXQ0tQLUZQdm9rSUxENkd3ekFNcGhLQ3pSZTFucUFyT2dHeHZ5NG54Q2cyczItZV9xbXpxWnEzQm1ndXNoU0JndWhveGlXbGc2WGFfUXlXemFPSmRBR0FTSQ?oc=5",
     "publishedAt": "2026-05-28T07:00:00.000Z"
@@ -400,6 +394,12 @@
     "source": "\"shein toxic products\" - Google News",
     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPdDZiUUdxeHkxbXBMamhaN1lfeXNDV09CQTV5dEpQTnItWFU2NzFZNFBCWUFjeGQ4QktRX1JPU1Y3ZjZjYy1lY0JnUlE2bmlPbjNibmswenY4NVdOWE1YM1hsdVMybnlObWtIQmVkc2s4aVQ4bTM5amRIdFBpSS1KZTBVWFdmc1NXNjFhSmpQYkpUUWc1dXNWbHV4SmFseVJyaWxSSXc1RFYwOWs?oc=5",
     "publishedAt": "2026-02-17T08:00:00.000Z"
+  },
+  {
+    "title": "Fast fashion: 69% of our clothes contain toxic chemicals - Euronews",
+    "source": "\"temu toxic products\" - Google News",
+    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPTlJuZlI3bjNNT3g0b0UxUUlXR1NnZ3duZU9nSzFxa29oUnJmM1ZyMy13NzhGdFhsb2M0WVhNQVZnVm5ES2hmOWx3UHhYTzRqTmZmMXpyc1dZWVNMMGs2ZHNkcXkwUk1tRnBIcm1jaVJJM2ZmbkEyZkdhS3lkOEdqbnN3NUc0cjk0eWxlM29mT0lBT0dIenBpSkdXb3JRZlNKc2c?oc=5",
+    "publishedAt": "2026-02-07T08:00:00.000Z"
   },
   {
     "title": "France reduces legal demands against Shein in appeal hearing - FashionUnited",
@@ -708,15 +708,15 @@
     "publishedAt": "2025-10-31T07:00:00.000Z"
   },
   {
-    "title": "Worrisome: More than two-thirds of Temu and Shein products violate safety standards - Update: Temu responds - Daily News Hungary",
-    "source": "\"temu toxic products\" - Google News",
-    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5LRjVVR1dGTTJtUDFpQlVCeHNRTVlWRExSRmt5R3hyMFRKSENKb21hTm12Z29kQVp2T3N5UFctdjR0eE55elhmdjNyWGZFOElEaVZoOF9uUEJaYU9zSkJRR19mT3A2NzNOV1FvdnQ1UmV1ZnM?oc=5",
-    "publishedAt": "2025-10-31T07:00:00.000Z"
-  },
-  {
     "title": "Toxic bargains: High number of goods sold on Temu and Shein don't conform to EU standards - RTL Today",
     "source": "\"temu toxic products\" - Google News",
     "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSVlobV9SdUpWVVdLV2NadXZDVERZVE5yUmhXamFFcURlcmhoRmVsTy1DZURucEtoSkhqajgybUo2QUFHeEhaRV9CbnRGNjFNUFo2ZFVrOERjSVdpN3ZaODBzRmtnbGVzOHJYY1p0OGc3NVJTaGgyMTBnLXlPc0lwT1RqVy1kWWcxYnRvdVlJQzZGMUJDTDRBRFhWVXRwVTdoaDhDWEdycTgzYXJpYnJxdFlR?oc=5",
+    "publishedAt": "2025-10-31T07:00:00.000Z"
+  },
+  {
+    "title": "Worrisome: More than two-thirds of Temu and Shein products violate safety standards - Update: Temu responds - Daily News Hungary",
+    "source": "\"shein toxic products\" - Google News",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5LRjVVR1dGTTJtUDFpQlVCeHNRTVlWRExSRmt5R3hyMFRKSENKb21hTm12Z29kQVp2T3N5UFctdjR0eE55elhmdjNyWGZFOElEaVZoOF9uUEJaYU9zSkJRR19mT3A2NzNOV1FvdnQ1UmV1ZnM?oc=5",
     "publishedAt": "2025-10-31T07:00:00.000Z"
   },
   {
